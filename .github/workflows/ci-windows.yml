@@ -24,15 +24,9 @@ jobs:
         with:
          version: master
          cache: true
-
-      - name: Output MSVC info
-        run: cl
-
-      - name: Output libc env variables
-        run: zig libc
-      
+         
       - name: Build
-        run: zig build --release -Dtarget="x86-windows.xp-msvc"
+        run: zig build --host-target x86-windows --release -Dtarget="x86-windows.xp-msvc"
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
