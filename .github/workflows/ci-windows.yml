@@ -18,8 +18,7 @@ jobs:
         with:
          arch: x86
          sdk: 10.0.20348.0
-         toolset: 14.XX
-        
+         
       - name: Setup Zig
         uses: goto-bus-stop/setup-zig@v2
         with:
