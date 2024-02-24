@@ -31,7 +31,7 @@ Examples:
 ```
 
 ## Building from Source
-Tested with [Zig](https://ziglang.org/) `0.11.0` and `0.12.0-dev.2835+256c5934b`.
+Tested with [Zig](https://ziglang.org/) `0.11.0` and `0.12.0-dev.2858+7230b68b3`.
 ```
 zig build
 ```
