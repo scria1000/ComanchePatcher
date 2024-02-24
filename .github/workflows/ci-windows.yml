@@ -25,6 +25,9 @@ jobs:
          version: master
          cache: true
 
+      - name: Output MSVC info
+        run: cl
+
       - name: Output libc env variables
         run: zig libc
       
