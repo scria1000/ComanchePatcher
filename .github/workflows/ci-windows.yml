@@ -17,7 +17,6 @@ jobs:
         uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
          arch: x86
-         sdk: 10.0.20348.0
          
       - name: Setup Zig
         uses: goto-bus-stop/setup-zig@v2
@@ -26,7 +25,7 @@ jobs:
          cache: true
          
       - name: Build
-        run: zig build --host-target x86-windows --release -Dtarget="x86-windows.xp-msvc"
+        run: zig build --libc msvc-x86.txt --release -Dtarget="x86-windows.xp-msvc"
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
