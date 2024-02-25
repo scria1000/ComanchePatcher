@@ -27,7 +27,7 @@ jobs:
       - name: Calculate hash
         id: hash
         run: | 
-          $HASH=(Get-FileHash zig-out/bin/*).Hash
+          $HASH=(Get-FileHash zig-out/bin/patcher.exe).Hash
           Write-Output $HASH
           Add-Content -Path $env:GITHUB_OUTPUT -Value "hash=$HASH"
 
@@ -46,10 +46,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ComanchePatcher-${{github.sha}}
-          path: zig-out/bin/*
+          path: zig-out/bin/patcher.exe
 
       - name: Archive for Release
-        run: Compress-Archive -Path zig-out/bin/* -DestinationPath ./ComanchePatcher-${{steps.tag.outputs.tag}}.zip
+        run: Compress-Archive -Path zig-out/bin/patcher.exe -DestinationPath ./ComanchePatcher-${{steps.tag.outputs.tag}}.zip
 
       - name: Get current job url
         id: jobs
@@ -64,7 +64,7 @@ jobs:
           body: |
             | File | SHA256 | |
             | ------------- | ------------- | ------------- |
-            | patcher.exe | ${{ steps.hash.outputs.hash }} | [Show in build log](${{ steps.jobs.outputs.html_url }}#step:5:54)|
+            | patcher.exe | ${{ steps.hash.outputs.hash }} | [Show in build log](${{ steps.jobs.outputs.html_url }}#step:6:54)|
           prerelease: true
           files: ./ComanchePatcher-${{steps.tag.outputs.tag}}.zip
           tag_name: ${{ steps.tag.outputs.tag }}
